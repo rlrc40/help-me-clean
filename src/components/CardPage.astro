@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
   emojis: string;
@@ -15,39 +15,42 @@ const { emojis, title, todos, places } = Astro.props;
 
 <div>
   <h1 class="header text-gradient">
-    { title }
-    <a class="arrow" href="/">
-      🔙
-    </a>
+    {title}
+    <a class="arrow" href="/"> 🔙</a>
   </h1>
   <div class="card">
     <div class="content">
-      <p>{ emojis }</p>
+      <p>{emojis}</p>
       <ul class="places">
-        { places.map((place) =>
-          <li><strong>{ place }</strong></li>
-        ) }
+        {
+          places.map((place) => (
+            <li>
+              <strong>{place}</strong>
+            </li>
+          ))
+        }
       </ul>
       <ul class="todos">
-          { todos.map((todo) =>
-              <li>
-                  <span class="check text-gradient">✔</span> { todo }
-              </li>
-          ) }
+        {
+          todos.map((todo) => (
+            <li>
+              <span class="check text-gradient">✔</span> {todo}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>
 </div>
 
 <style>
-
   .header {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .arrow {
     font-size: 3rem;
     cursor: pointer;
@@ -104,7 +107,7 @@ const { emojis, title, todos, places } = Astro.props;
     transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     background-position: 0;
     color: white;
-    margin: 0 .3rem;
+    margin: 0 0.3rem;
     white-space: nowrap;
   }
 
@@ -134,7 +137,7 @@ const { emojis, title, todos, places } = Astro.props;
     color: white;
   }
   .todos li:after {
-    content: '';
+    content: "";
     position: absolute;
     top: calc(-1 * var(--borderWidth));
     left: calc(-1 * var(--borderWidth));
@@ -146,5 +149,4 @@ const { emojis, title, todos, places } = Astro.props;
     animation: animatedgradient 3s ease alternate infinite;
     background-size: 300% 300%;
   }
-
 </style>
