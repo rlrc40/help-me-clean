@@ -14,10 +14,14 @@ const { emojis, title, todos, places } = Astro.props;
 ---
 
 <div>
-  <h1 class="header text-gradient">
-    {title}
-    <a class="arrow" href="/"> 🔙</a>
-  </h1>
+  <section>
+    <div class="card-page-header">
+      <h1 class="text-gradient">
+        {title}
+      </h1>
+      <a class="arrow" href="/"> 🔙</a>
+    </div>
+  </section>
   <div class="card">
     <div class="content">
       <p>{emojis}</p>
@@ -44,12 +48,19 @@ const { emojis, title, todos, places } = Astro.props;
 </div>
 
 <style>
-  .header {
+  .card-page-header {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
+  .card-page-header a {
+    text-decoration: none;
+    position: relative;
+    top: -.3rem;
+  }
+  
 
   .arrow {
     font-size: 3rem;
