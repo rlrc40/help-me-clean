@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import '../styles/global.css';
+
+export interface Props {
+  emojis: string;
+  todos: string[];
+  places: string[];
+  title: string;
+}
+
+const { emojis, title, todos, places } = Astro.props;
+---
+
+<div>
+  <h1 class="header text-gradient">
+    { title }
+    <a class="arrow" href="/">
+      🔙
+    </a>
+  </h1>
+  <div class="card">
+    <div class="content">
+      <p>{ emojis }</p>
+      <ul class="places">
+        { places.map((place) =>
+          <li><strong>{ place }</strong></li>
+        ) }
+      </ul>
+      <ul class="todos">
+          { todos.map((todo) =>
+              <li>
+                  <span class="check text-gradient">✔</span> { todo }
+              </li>
+          ) }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .arrow {
+    font-size: 3rem;
+    cursor: pointer;
+  }
+
+  .card {
+    list-style: none;
+    display: flex;
+    padding: 0.15rem;
+    background-image: var(--link-gradient);
+    background-size: 400%;
+    border-radius: 0.5rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .card .content {
+    width: 100%;
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 1em 1.3em;
+    border-radius: 0.35rem;
+    color: var(--text-color);
+    background-color: white;
+    opacity: 0.8;
+  }
+
+  p {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  h2 span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .places {
+    margin: 0;
+    margin-top: 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .places li {
+    padding: 0.15rem 0.5rem;
+    background-image: var(--link-gradient);
+    background-size: 400%;
+    border-radius: 0.5rem;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    background-position: 0;
+    color: white;
+    margin: 0 .3rem;
+    white-space: nowrap;
+  }
+
+  .todos {
+    list-style: none;
+    margin: 2rem 0;
+    padding: 0;
+  }
+  .check {
+    margin-right: 1rem;
+  }
+  .todos li {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 1rem auto;
+    padding: 0.15rem 1rem;
+    --borderWidth: 3px;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    background: white;
+    position: relative;
+    border-radius: var(--borderWidth);
+  }
+  .todos li:hover {
+    background: transparent;
+    color: white;
+  }
+  .todos li:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: var(--border-gradient);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+
+</style>

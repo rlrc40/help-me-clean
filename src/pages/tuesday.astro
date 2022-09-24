@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardPage from "../components/CardPage.astro";
+---
+
+<Layout title="Tuesday">
+  <main>
+    <CardPage
+      emojis="🧹🔝"
+      title="TUESDAY"
+      todos={[
+        "Dormitorios (Polvo)",
+        "Dormitorios (Aspirar)",
+        "Dormitorios (Fregar) Semanas impares",
+        "Pasillo sup. (Aspirar)",
+        "Pasillo sup. (Fregar) Semanas impares",
+      ]}
+      places={["Dormitorio", "Oficina", "Pasillo Sup."]}
+    />
+  </main>
+</Layout>

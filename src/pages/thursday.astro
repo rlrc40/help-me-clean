@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardPage from "../components/CardPage.astro";
+---
+
+<Layout title="Thursday">
+  <main>
+    <CardPage
+      emojis="🚽🛁"
+      title="THURSDAY"
+      todos={[
+        "Limpiar Sanitarios",
+        "Limpiar Espejos",
+        "Limpiar mampara (semanas pares)",
+        "Limpiar bañera (primer lunes del mes)",
+      ]}
+      places={["Baños"]}
+    />
+  </main>
+</Layout>

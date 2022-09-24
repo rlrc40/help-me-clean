@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+import "../styles/global.css";
+---
+
+<Layout title="Help me to clean.">
+  <main>
+    <h1>Help me <span class="text-gradient">CLEAN</span></h1>
+    <p class="instructions">
+      Don't be lazy please...
+      <strong>Clean right now!</strong>
+    </p>
+    <ul role="list" class="link-card-grid">
+      <Card href="/daily/" title="Daily" body="📅" />
+      <Card href="/monday/" title="Monday" body="🚽🛁" />
+      <Card href="/tuesday/" title="Tuesday" body="🧹🔝" />
+      <Card href="/wednesday/" title="Wednesday" body="🧽🍽️" />
+      <Card href="/thursday/" title="Thursday" body="🚽🛁" />
+      <Card href="/friday/" title="Friday" body="🧹🩲🧦" />
+      <Card href="/saturday/" title="Saturday" body="🥳" />
+      <Card href="/sunday/" title="Sunday" body="🐈🛌" />
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    background: var(--color-info);
+    padding: 1rem;
+    border-radius: 0.4rem;
+    color: var(--color-bg);
+  }
+
+  .instructions code {
+    font-size: 0.875em;
+    border: 0.1em solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.15em 0.25em;
+  }
+
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+</style>
